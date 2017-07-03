@@ -10,9 +10,9 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 
 (when window-system (set-exec-path-from-shell-PATH))
-(setenv "GOPATH" "/Users/yahui/workspace/gocode")
+(setenv "GOPATH" "/home/jasson/workspace/golang")
 
-(add-to-list 'exec-path "/Users/yahui/workspace/gocode/bin")
+(add-to-list 'exec-path "/home/jasson/workspace/golang/bin")
 (defun my-go-mode-hook ()
                                         ; Use goimports instead of go-fmt
   (setq gofmt-command "goimports")
@@ -23,7 +23,7 @@
       (set (make-local-variable 'compile-command)
            "go generate && go build -v && go test -v && go vet"))
                                         ; Go oracle
-  (load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+  ;;(load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
                                         ; Godef jump key binding
   ;; (local-set-key (kbd "M-.") 'godef-jump)
   (local-set-key (kbd "M-*") 'pop-tag-mark)
