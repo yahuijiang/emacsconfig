@@ -8,7 +8,22 @@
 (when (version<= emacs-version "24")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "emacs-js" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
@@ -74,7 +89,7 @@
 ;; (require 'init-ido)
 (require 'init-ivy)
 (require 'init-hippie-expand)
-(require 'init-company)
+;;(require 'init-company)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)
@@ -97,7 +112,7 @@
 (require 'init-markdown)
 (require 'init-csv)
 (require 'init-erlang)
-(require 'init-javascript)
+;;(require 'init-javascript)
 (require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
@@ -126,6 +141,7 @@
 (require 'init-misc)
 (require 'init-golang)
 
+(require 'emacs-js)
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
@@ -197,7 +213,6 @@
  
 (advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
 (require 'speedbar-extension)
-
 
 
 

@@ -1,16 +1,22 @@
 
 ;; ----- smex-history -----
 (
+ package-install
+ rjsx-mode
+ js2-jsx-mode
+ package-refresh-contents
+ package-list-packages
+ elpy-mode
  go-mode
- cd
- ri
- 5x5
- arp
- dbx
- dig
 )
 
 ;; ----- smex-data -----
 (
  (go-mode . 1)
+ (package-install . 18)
+ (package-list-packages . 2)
+ (elpy-mode . 2)
+ (package-refresh-contents . 3)
+ (js2-jsx-mode . 1)
+ (rjsx-mode . 1)
 )

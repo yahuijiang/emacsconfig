@@ -10,9 +10,9 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 
 (when window-system (set-exec-path-from-shell-PATH))
-(setenv "GOPATH" "/home/jasson/workspace/golang")
+(setenv "GOPATH" "/Users/admin/workspace/golang")
 
-(add-to-list 'exec-path "/home/jasson/workspace/golang/bin")
+(add-to-list 'exec-path "/Users/admin/workspace/golang/bin")
 (defun my-go-mode-hook ()
                                         ; Use goimports instead of go-fmt
   (setq gofmt-command "goimports")
@@ -25,8 +25,8 @@
                                         ; Go oracle
   ;;(load-file "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
                                         ; Godef jump key binding
-  ;; (local-set-key (kbd "M-.") 'godef-jump)
-  (local-set-key (kbd "M-*") 'pop-tag-mark)
+  (local-set-key (kbd "M-.") 'godef-jump)
+  (local-set-key (kbd "M-,") 'pop-tag-mark)
   )
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
