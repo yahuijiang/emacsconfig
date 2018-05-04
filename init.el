@@ -214,7 +214,7 @@
 (advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
 (require 'speedbar-extension)
 
-
+(setq auto-save-default nil)
 
 (provide 'init)
 

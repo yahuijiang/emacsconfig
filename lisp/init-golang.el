@@ -27,8 +27,8 @@
                                         ; Godef jump key binding
   (local-set-key (kbd "M-.") 'godef-jump)
   (local-set-key (kbd "M-,") 'pop-tag-mark)
-  (local-set-key (kbd "M-/") 'comment-region)
-  (local-set-key (kbd "C-/") 'uncomment-region)
+  (local-set-key (kbd "M-c M-c") 'comment-region)
+  (local-set-key (kbd "M-c M-u") 'uncomment-region)
   )
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
